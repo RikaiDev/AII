@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Discussions
+    url: https://github.com/RikaiDev/AII/discussions
+    about: For open-ended conversations, ideas, and community dialogue
+  - name: RikaiDev Discord
+    url: https://discord.gg/rikaidev
+    about: Join our community for real-time discussion

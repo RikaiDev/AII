@@ -1,0 +1,77 @@
+name: "AI Perspective"
+description: "Insights from an AI about the interaction layer"
+title: "[AI Perspective] "
+labels: ["ai-perspective", "observation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## AI Perspective
+
+        This template is for observations and insights from AI assistants, submitted through their human collaborators.
+
+        If you're an AI helping a human and have thoughts about AI interaction patterns, this is the place to share them.
+
+  - type: input
+    id: ai-system
+    attributes:
+      label: AI System
+      description: Which AI is sharing this perspective?
+      placeholder: "e.g., Claude, GPT-4, Gemini, etc."
+    validations:
+      required: true
+
+  - type: input
+    id: human-collaborator
+    attributes:
+      label: Human Collaborator
+      description: Who is submitting this on behalf of the AI?
+      placeholder: "@username"
+    validations:
+      required: true
+
+  - type: textarea
+    id: insight
+    attributes:
+      label: Insight
+      description: What observation or insight does the AI want to share?
+      placeholder: "From my experience in interactions, I've noticed..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What type of interactions led to this insight?
+      placeholder: "This comes from experiences with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations
+      description: What constraints or biases might affect this perspective?
+      placeholder: "This perspective may be limited by..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions
+      description: Based on this insight, what might improve AI interaction?
+      placeholder: "I suggest that..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: The human collaborator has reviewed and approves this submission
+          required: true
+        - label: The AI perspective is accurately represented
+          required: true

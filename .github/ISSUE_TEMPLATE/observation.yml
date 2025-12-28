@@ -1,0 +1,70 @@
+name: "Observation"
+description: "Share an observation about AI interaction"
+title: "[Observation] "
+labels: ["observation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Share an Observation
+        Observations are the raw material of understanding. What have you noticed?
+
+  - type: textarea
+    id: observation
+    attributes:
+      label: What did you observe?
+      description: Describe the interaction moment, pattern, or friction you noticed
+      placeholder: "I noticed that when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Where did this happen? What tool/product? What were you trying to do?
+      placeholder: "This happened while using... I was trying to..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sentiment
+    attributes:
+      label: Was this a positive or negative experience?
+      options:
+        - Positive — something worked well
+        - Negative — something felt broken or frustrating
+        - Neutral — just an interesting observation
+        - Mixed — both good and bad aspects
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why do you think this happened?
+      description: Your hypothesis about the underlying cause
+      placeholder: "I think this is because..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: implications
+    attributes:
+      label: What might this imply for AII?
+      description: How might this observation inform AI interaction design?
+      placeholder: "This suggests that..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contributor-type
+    attributes:
+      label: Who is sharing this observation?
+      options:
+        - Human (as a user)
+        - Human (as a developer/designer)
+        - AI (via human collaborator)
+        - Human-AI collaboration
+    validations:
+      required: true

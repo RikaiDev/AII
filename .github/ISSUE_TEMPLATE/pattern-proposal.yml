@@ -1,0 +1,89 @@
+name: "Pattern Proposal"
+description: "Propose a new AI interaction pattern"
+title: "[Pattern] "
+labels: ["pattern", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Propose a Pattern
+        Share an interaction pattern you've observed or envisioned.
+
+  - type: input
+    id: pattern-name
+    attributes:
+      label: Pattern Name
+      description: A concise, descriptive name for this pattern
+      placeholder: "e.g., Progressive Disclosure, Confidence Gradient"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: When does this pattern apply? What situation triggers its use?
+      placeholder: "This pattern is useful when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What interaction friction or challenge does this pattern address?
+      placeholder: "Users/AI struggle with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+      description: How does the pattern work? Describe the interaction flow.
+      placeholder: "The pattern works by..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: A concrete example (real or hypothetical) showing this pattern in action
+      placeholder: |
+        User: "..."
+        AI: "..."
+        [Visual element appears]
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Trade-offs
+      description: What are the limitations or downsides of this pattern?
+      placeholder: "This pattern may not work well when..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contributor-type
+    attributes:
+      label: Contributor
+      description: Who is proposing this pattern?
+      options:
+        - Human
+        - AI (via human collaborator)
+        - Human-AI collaboration
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Any existing implementations, papers, or related patterns?
+      placeholder: "- Link 1\n- Link 2"
+    validations:
+      required: false

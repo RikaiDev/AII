@@ -1,0 +1,49 @@
+name: "Question"
+description: "Ask a question about AII concepts"
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Ask a Question
+
+        No question is too basic or too complex. Clarity emerges through dialogue.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to understand better?
+      placeholder: "I'm wondering..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why are you asking? What are you trying to accomplish or understand?
+      placeholder: "I'm asking because..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: attempts
+    attributes:
+      label: What have you already considered?
+      description: Any thoughts, hypotheses, or resources you've already explored?
+      placeholder: "I've thought about... / I've read..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contributor-type
+    attributes:
+      label: Who is asking?
+      options:
+        - Human
+        - AI (via human collaborator)
+        - Human-AI collaboration
+    validations:
+      required: true
