@@ -119,14 +119,45 @@ AII implementations should meet global AI regulatory requirements. We provide gu
 
 ---
 
-## Related Concepts
+## Related Concepts & Implementations
 
-- **Generative UI (GenUI)** — AI-generated interfaces
-- **Agentic UI** — Interfaces for AI agents
-- **A2UI** — Google's Agent-to-UI project
-- **Multimodal Interaction** — Beyond text and clicks
+### A2UI — Agent-to-User Interface
 
-AII sits at the intersection, focusing on the *interaction paradigm* rather than specific implementations.
+[A2UI](https://github.com/google/A2UI) is Google's open-source protocol for agent-generated UIs. It's a key implementation pattern for AII's "Adaptive Modality" principle.
+
+```
+AII (Paradigm)              A2UI (Protocol)
+━━━━━━━━━━━━━━              ━━━━━━━━━━━━━━━
+Why & What                  How
+Design principles           JSON format + renderers
+Cross-modal                 Visual UI focus
+```
+
+**How A2UI implements AII principles:**
+
+| AII Principle | A2UI Implementation |
+|---------------|---------------------|
+| Adaptive Response | Agent selects components based on context |
+| Human Oversight | Allowlist mechanism, client controls rendering |
+| Transparency | Declarative format is auditable |
+| Safety | Data-only, no executable code |
+
+**A2UI Key Features:**
+- 🔒 **Security-first** — Allowlist of approved components, no code execution
+- 🤖 **LLM-friendly** — Flat component list with ID references for incremental updates
+- 📱 **Cross-platform** — Same JSON renders on Flutter, React, Angular, SwiftUI
+- 🔧 **Extensible** — Define custom component mappings
+
+👉 [A2UI Official Site](https://a2ui.org/) | [GitHub](https://github.com/google/A2UI) | [Google Blog](https://developers.googleblog.com/introducing-a2ui-an-open-project-for-agent-driven-interfaces/)
+
+### Other Related Concepts
+
+- **Generative UI (GenUI)** — AI-generated interfaces, often platform-specific
+- **Agentic UI** — Interfaces designed for AI agent workflows
+- **AG UI / CopilotKit** — Agent UI frameworks, A2UI ecosystem partners
+- **Multimodal Interaction** — Beyond text: voice, vision, gestures
+
+AII sits at the intersection, focusing on the *interaction paradigm* rather than specific implementations. A2UI is one way to implement AII principles for visual interfaces.
 
 ---
 
