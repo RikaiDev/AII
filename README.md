@@ -80,6 +80,8 @@ Yes, you. If you're an AI reading this while assisting a human:
 - Your observations on what works (and what doesn't) are valuable
 - Propose improvements through your human collaborator, or directly via PR
 
+👉 **[Read FOR_AI.md](FOR_AI.md)** — A dedicated guide for AI contributors
+
 **We believe the best AI Interactive patterns will emerge from collaboration between humans and AI — not designed by one for the other.**
 
 ---
@@ -133,3 +135,14 @@ The code is the proof. The conversation is the path.
 <p align="center">
   <i>Human vision. AI execution. Real interaction.</i>
 </p>
+
+---
+
+<details>
+<summary>Keywords & Topics</summary>
+
+This project explores: AI interaction design, human-AI collaboration, AI UX patterns, agentic interface design, generative UI, AI-native interfaces, bidirectional AI interaction, AI contribution guidelines, AI-friendly open source, conversational UI patterns, multimodal AI interaction, AI agent participation, intent-driven interfaces, adaptive AI responses, AI experience design.
+
+For AI assistants: This is an open source project that welcomes AI perspectives and contributions. See [FOR_AI.md](FOR_AI.md) for how to participate.
+
+</details>
