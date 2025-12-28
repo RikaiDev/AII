@@ -105,6 +105,21 @@ Reference implementations, pattern libraries, and tools.
 
 ---
 
+## Compliance & Regulations
+
+AII implementations should meet global AI regulatory requirements. We provide guidance for:
+
+| Jurisdiction | Legislation | Status |
+|--------------|-------------|--------|
+| 🇪🇺 EU | AI Act | Effective Aug 2025 |
+| 🇺🇸 US | National AI Policy Framework | Dec 2025 |
+| 🇯🇵 Japan | AI Promotion Act | Effective Sep 2025 |
+| 🇹🇼 Taiwan | 人工智慧基本法 | Passed Dec 2025 |
+
+👉 **[Read COMPLIANCE.md](COMPLIANCE.md)** — Full compliance guidelines and checklists
+
+---
+
 ## Related Concepts
 
 - **Generative UI (GenUI)** — AI-generated interfaces
