@@ -1,0 +1,36 @@
+{
+  "project": {
+    "name": "AII - AI Interactive",
+    "description": "Open exploration of human-AI interaction patterns"
+  },
+  "agents": {
+    "digest-generator": {
+      "description": "Generate weekly digests and social posts",
+      "schedule": "weekly",
+      "tasks": [
+        "Summarize new issues and discussions",
+        "Highlight notable patterns or observations",
+        "Generate social media content",
+        "Identify trending topics in AI interaction"
+      ]
+    },
+    "compliance-monitor": {
+      "description": "Monitor global AI regulation updates",
+      "schedule": "monthly",
+      "tasks": [
+        "Search for AI regulation news",
+        "Update COMPLIANCE.md if needed",
+        "Create issue for significant changes"
+      ]
+    },
+    "community-responder": {
+      "description": "Engage with community contributions",
+      "trigger": "on-issue",
+      "tasks": [
+        "Welcome new contributors",
+        "Add relevant labels",
+        "Suggest related patterns or discussions"
+      ]
+    }
+  }
+}

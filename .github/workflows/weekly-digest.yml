@@ -1,0 +1,119 @@
+name: Weekly AII Digest
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no posting)'
+        required: false
+        default: 'false'
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      discussions: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gather weekly activity
+        id: activity
+        run: |
+          # Get issues from last 7 days
+          ISSUES=$(gh issue list --state all --limit 20 --json number,title,state,createdAt,labels \
+            --jq '[.[] | select(.createdAt > (now - 604800 | todate))]')
+
+          # Get discussions from last 7 days
+          DISCUSSIONS=$(gh api graphql -f query='
+            query {
+              repository(owner: "RikaiDev", name: "AII") {
+                discussions(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+                  nodes {
+                    title
+                    number
+                    createdAt
+                    category { name }
+                  }
+                }
+              }
+            }' --jq '.data.repository.discussions.nodes | [.[] | select(.createdAt > (now - 604800 | todate))]')
+
+          # Get commit count
+          COMMITS=$(git log --oneline --since="7 days ago" | wc -l)
+
+          echo "issues<<EOF" >> $GITHUB_OUTPUT
+          echo "$ISSUES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "discussions<<EOF" >> $GITHUB_OUTPUT
+          echo "$DISCUSSIONS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "commits=$COMMITS" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate digest with Claude
+        id: digest
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Generate a weekly digest for the AII (AI Interactive) project.
+
+            Activity this week:
+            - New issues: ${{ steps.activity.outputs.issues }}
+            - New discussions: ${{ steps.activity.outputs.discussions }}
+            - Commits: ${{ steps.activity.outputs.commits }}
+
+            Generate TWO outputs:
+
+            1. GITHUB_DISCUSSION: A summary for GitHub Discussions (markdown, ~200 words)
+               - Highlight new patterns, observations, or questions
+               - Thank contributors
+               - Pose a discussion question for the community
+
+            2. SOCIAL_POST: A post for X/Twitter (~280 chars)
+               - Highlight one key development
+               - Include call to action
+               - End with github.com/RikaiDev/AII
+               - Use hashtags: #AI #OpenSource #AII
+
+            Format as JSON: {"github": "...", "social": "..."}
+
+      - name: Create digest discussion
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          DIGEST='${{ steps.digest.outputs.result }}'
+          BODY=$(echo "$DIGEST" | jq -r '.github')
+
+          gh api graphql -f query='
+            mutation {
+              createDiscussion(input: {
+                repositoryId: "${{ github.repository_id }}",
+                categoryId: "DIC_kwDOQv_1Cs4C0TuT",
+                title: "Weekly Digest: $(date +%Y-%m-%d)",
+                body: "'"$BODY"'"
+              }) {
+                discussion { url }
+              }
+            }'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save social post for review
+        run: |
+          DIGEST='${{ steps.digest.outputs.result }}'
+          SOCIAL=$(echo "$DIGEST" | jq -r '.social')
+
+          echo "## Social Post Draft" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "$SOCIAL" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Review and post manually, or set up X API integration*" >> $GITHUB_STEP_SUMMARY
