@@ -1,0 +1,139 @@
+name: "Regulatory Update"
+description: "Report new or updated AI regulations affecting AII implementations"
+title: "[Regulation] "
+labels: ["regulation", "compliance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Regulatory Update
+        Help keep COMPLIANCE.md current by reporting new or updated AI regulations.
+
+  - type: dropdown
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction
+      description: Which country or region does this regulation apply to?
+      options:
+        - 🇨🇳 China
+        - 🇯🇵 Japan
+        - 🇰🇷 South Korea
+        - 🇹🇼 Taiwan
+        - 🇸🇬 Singapore
+        - 🇮🇳 India
+        - 🇦🇺 Australia
+        - 🇪🇺 European Union
+        - 🇬🇧 United Kingdom
+        - 🇮🇱 Israel
+        - 🇦🇪 UAE
+        - 🇺🇸 United States
+        - 🇨🇦 Canada
+        - 🇧🇷 Brazil
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: regulation-name
+    attributes:
+      label: Regulation Name
+      description: Official name of the regulation (original language + English if available)
+      placeholder: "人工智能擬人化互動服務管理暫行辦法 / Interim Measures for AI Anthropomorphic Interactive Services"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: What is the current status of this regulation?
+      options:
+        - Draft / Consultation
+        - Passed (pending effective date)
+        - Effective / In force
+        - Amended
+        - Repealed
+    validations:
+      required: true
+
+  - type: input
+    id: effective-date
+    attributes:
+      label: Effective Date
+      description: When does/did this regulation take effect?
+      placeholder: "2026-01-01 or TBD"
+    validations:
+      required: false
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Brief summary of what this regulation covers
+      placeholder: |
+        This regulation targets AI systems that simulate human personality and emotions.
+        Key requirements include...
+    validations:
+      required: true
+
+  - type: textarea
+    id: key-requirements
+    attributes:
+      label: Key Requirements
+      description: List the main requirements relevant to AII implementations
+      placeholder: |
+        - Transparency: Must disclose AI involvement
+        - User protection: Specific safeguards required
+        - Data: Restrictions on training data usage
+    validations:
+      required: true
+
+  - type: textarea
+    id: aii-implications
+    attributes:
+      label: Implications for AII
+      description: How should AII implementations respond to this regulation?
+      placeholder: |
+        - Implement X feature
+        - Avoid Y pattern
+        - Consider Z approach
+    validations:
+      required: false
+
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Comparison with Other Regulations
+      description: How does this compare to regulations in other jurisdictions?
+      placeholder: |
+        Unlike EU AI Act which focuses on..., this regulation emphasizes...
+    validations:
+      required: false
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: Official source or authoritative reference
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: contributor-type
+    attributes:
+      label: Who is reporting this update?
+      options:
+        - Human
+        - AI (via human collaborator)
+        - Human-AI collaboration
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information, translations, or notes
+    validations:
+      required: false
