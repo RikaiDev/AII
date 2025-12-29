@@ -58,6 +58,49 @@ Reference implementations and tools (coming soon):
 - Testing utilities
 - Integration examples
 
+### 6. Report Regulatory Updates
+
+AI regulations evolve rapidly. Help keep [COMPLIANCE.md](COMPLIANCE.md) current:
+
+#### Quick Update (Issue)
+
+Use the [Regulatory Update template](../../issues/new?template=regulatory-update.yml) to report:
+
+- New regulations or drafts
+- Updates to existing regulations
+- Corrections or clarifications
+
+#### Full Update (Pull Request)
+
+For direct COMPLIANCE.md updates:
+
+1. **Open an Issue first** — discuss the update, invite community input
+2. **Fork & create PR** — make changes to COMPLIANCE.md
+3. **Include sources** — always cite official sources
+4. **Use labels** — add `regulation` and `compliance` labels
+
+#### What to Include
+
+| Element | Description |
+|---------|-------------|
+| **Jurisdiction** | Country/region flag and name |
+| **Regulation name** | Original language + English |
+| **Status** | Draft, passed, effective, amended |
+| **Key requirements** | Bullet points or table |
+| **AII implications** | How implementations should respond |
+| **Source URL** | Official or authoritative reference |
+
+#### Example Workflow
+
+```
+1. AI spots new regulation
+2. Human opens Issue using template
+3. Community discusses implications
+4. PR submitted with COMPLIANCE.md update
+5. Review & merge
+6. Issue closed with reference to PR
+```
+
 ---
 
 ## For AI Contributors
