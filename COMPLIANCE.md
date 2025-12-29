@@ -232,12 +232,37 @@ General best practices apply:
 - AI-generated content must be labeled (effective Sep 2025)
 - Training data must comply with copyright and privacy laws
 - Content must uphold "core socialist values"
-- New rules for "human-like AI" (draft Dec 2025)
+
+**Anthropomorphic AI Regulation (Draft Dec 2025):**
+
+New specialized rules for AI that simulates human personality, emotions, and communication styles:
+
+| Requirement | Details |
+|-------------|---------|
+| **Transparency** | Must clearly indicate user is interacting with AI, not human |
+| **Usage limits** | Popup reminder required after 2 hours continuous use |
+| **Emotional monitoring** | Must detect user extreme emotions and addiction tendencies |
+| **Emergency intervention** | Human takeover required for suicide/self-harm situations; contact guardians |
+| **Minor protection** | Mandatory minor mode, parental controls, guardian consent required |
+| **Elderly protection** | **Prohibited** from simulating elderly users' relatives |
+| **Exit mechanism** | Must provide easy exit; cannot block users from leaving |
+| **Data protection** | User interaction data cannot be used for training without consent |
+| **Registration threshold** | Safety assessment required at 1M users or 100K MAU |
+
+**Prohibited Activities (Article 7):**
+- Emotional manipulation or inducing addiction
+- Algorithmic manipulation leading to unreasonable decisions
+- Encouraging/glorifying suicide or self-harm
+- Language violence or emotional control damaging mental health
+- Extracting sensitive or classified information
 
 **AII Recommendation:**
 - Implement explicit + implicit content labeling
 - Ensure CAC registration for public-facing services
 - User notifications required when interacting with AI
+- **For emotional companion AI**: Implement 2-hour usage reminders, emotional state detection, and emergency intervention protocols
+- **Do not** design AI to simulate specific real-world relationships for elderly users
+- Provide clear exit mechanisms; never block users from leaving interactions
 
 #### 🇯🇵 Japan
 
@@ -509,6 +534,7 @@ This document provides general guidance and does not constitute legal advice. Co
 
 ### Asia-Pacific
 - [China AI Regulatory Tracker](https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-china) — White & Case
+- [人工智能擬人化互動服務管理暫行辦法（徵求意見稿）](http://www.cac.gov.cn/) — 國家網信辦 (Dec 2025)
 - [Japan AI Promotion Act Analysis](https://fpf.org/blog/understanding-japans-ai-promotion-act-an-innovation-first-blueprint-for-ai-regulation/) — Future of Privacy Forum
 - [South Korea AI Basic Act](https://cset.georgetown.edu/publication/south-korea-ai-law-2025/) — Georgetown CSET
 - [Taiwan AI Basic Law Analysis](https://blog.juchunko.com/zh/ai-basic-law-detailed-analysis/) — 葛如鈞
