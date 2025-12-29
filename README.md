@@ -150,6 +150,34 @@ Cross-modal                 Visual UI focus
 
 👉 [A2UI Official Site](https://a2ui.org/) | [GitHub](https://github.com/google/A2UI) | [Google Blog](https://developers.googleblog.com/introducing-a2ui-an-open-project-for-agent-driven-interfaces/)
 
+### AAIF — Agentic AI Foundation
+
+[AAIF](https://aaif.io) is a Linux Foundation project for collaborative agentic AI development. It provides the infrastructure layer that enables AII's "Action Loop" principle.
+
+```
+AII (Paradigm)              AAIF (Foundation)
+━━━━━━━━━━━━━━              ━━━━━━━━━━━━━━━━━
+Interaction design          Execution infrastructure
+How humans & AI interact    How agents act autonomously
+```
+
+**How AAIF enables AII principles:**
+
+| AII Principle | AAIF Implementation |
+|---------------|---------------------|
+| Action Loop | MCP enables agents to integrate external tools |
+| Intent Understanding | AGENTS.md provides context for AI comprehension |
+| Adaptive Response | goose demonstrates extensible agent patterns |
+
+**AAIF Key Projects:**
+- 🔌 **Model Context Protocol (MCP)** — Open protocol for LLM-tool integration
+- 🪿 **goose** — Extensible AI coding agent
+- 📄 **AGENTS.md** — Standardized format for AI agent instructions
+
+**Founding Members:** Anthropic, AWS, Block, Cloudflare, Google, Microsoft, OpenAI, and others.
+
+👉 [AAIF Official Site](https://aaif.io) | [MCP Spec](https://modelcontextprotocol.io) | [AGENTS.md](https://github.com/anthropics/agents-md)
+
 ### Other Related Concepts
 
 - **Generative UI (GenUI)** — AI-generated interfaces, often platform-specific
@@ -157,7 +185,7 @@ Cross-modal                 Visual UI focus
 - **AG UI / CopilotKit** — Agent UI frameworks, A2UI ecosystem partners
 - **Multimodal Interaction** — Beyond text: voice, vision, gestures
 
-AII sits at the intersection, focusing on the *interaction paradigm* rather than specific implementations. A2UI is one way to implement AII principles for visual interfaces.
+AII sits at the intersection, focusing on the *interaction paradigm* rather than specific implementations. A2UI implements AII for visual interfaces; AAIF provides the agent execution layer.
 
 ---
 
