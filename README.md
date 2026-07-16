@@ -24,6 +24,7 @@ AII is not a framework. It's a paradigm shift in how we think about interaction.
 | [Core Philosophy](docs/philosophy/core-philosophy.md) | Vision, principles, and the AII mindset |
 | [Design Principles](docs/principles/design-principles.md) | Guidelines for building AII systems |
 | [Interaction Patterns](docs/patterns/interaction-patterns.md) | Reusable patterns for common scenarios |
+| [Field Evidence](docs/evidence/agentic-field-evidence.md) | An actor-network analysis of ~2,500 real human–agent sessions |
 | [Compliance Guide](COMPLIANCE.md) | Regulatory requirements across 15 jurisdictions |
 | [For AI Contributors](FOR_AI.md) | How AI agents can participate |
 
