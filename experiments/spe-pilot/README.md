@@ -5,6 +5,30 @@ reliability should come from *structure* (frozen contract + minimal
 deterministic kernel + bounded feedback) rather than from model capability or
 model self-report.
 
+## Vocabulary: agent work as a debt relation
+
+SPE borrows its terms from contract law rather than from testing, because the
+failure it addresses is not "the code is wrong" but "the work was declared
+finished by the party who owed it".
+
+| Term | Meaning in SPE |
+|---|---|
+| **Contract** | The acceptance criteria, frozen (content-hashed) *before* work starts |
+| **Obligation** | A criterion the agent has taken on and not yet satisfied |
+| **Discharge** | Proof that an obligation is met — **only the kernel may certify it** |
+| **Default** | Declaring an obligation discharged when it is not (失信) |
+| **Trust ledger** | The human's running count of defaults ("I've been deceived twenty times") |
+
+The pun is load-bearing: **`default` is both *breach of obligation* and *the
+behaviour you get when nothing is specified*.** An agent asked to certify its
+own work defaults in both senses at once.
+
+This reframes the experiment's arms. Arm **B** (self-check) is *letting the
+debtor certify their own repayment* — which is why it does not merely fail to
+help but actively destroys correct work (−31.4pp on llama3.2:1b). Arm **R** is
+certification by a party that cannot lie. **SPE's subject is not testing; it is
+who holds discharge authority.**
+
 ## Design history (kept honestly)
 
 **v1 flaw.** The original arm "A3 = three samples, submit the first" shared

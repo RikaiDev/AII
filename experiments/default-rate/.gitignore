@@ -1,0 +1,2 @@
+# corpus and annotations stay local (client data)
+*.jsonl
