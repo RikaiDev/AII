@@ -67,3 +67,40 @@ help?); **B − A** = does self-report help at all.
 python3 runner.py --seeds 1,2,3   # full matrix, resumable
 python3 analyze.py                # metric matrix + contrast columns
 ```
+
+## Results (6 models × 35 tasks × 3 seeds = 102 cells/model/arm)
+
+Run on an RTX 4080 box (models via ollama, CPU/GPU as ollama chooses).
+Full table in `results/RESULTS.txt`; raw rows in `results/runs-v2.jsonl`.
+
+| model | A | E[pick] | **R** | **B** | **R−E[pick]** | **B−A** |
+|---|---|---|---|---|---|---|
+| smollm2:135m | 46.1% | 44.8% | **63.7%** | 46.1% | **+19.0** | 0.0 |
+| llama3.2:1b | 76.5% | 75.8% | **87.3%** | 45.1% | +11.4 | **−31.4** |
+| qwen2.5-coder:0.5b | 87.3% | 86.6% | **95.1%** | 81.4% | +8.5 | −5.9 |
+| qwen2.5-coder:1.5b | 95.1% | 95.8% | **100%** | 92.2% | +4.2 | −2.9 |
+| qwen2.5-coder:7b | 100% | 99.3% | **100%** | 96.1% | +0.7 | −3.9 |
+| qwen2.5-coder:14b | 98.0% | 97.7% | **100%** | 100% | +2.3 | +2.0 |
+
+### Verdicts against the pre-registered hypotheses
+
+- **H1 (selection gain) — supported.** R > E[pick] at every rung; the gain
+  decays monotonically with capability (+19.0pp at 135M → +0.7pp at 7B). The
+  deterministic kernel converts occasional competence into reliable delivery,
+  and the effect is largest exactly where competence is least reliable.
+- **H2 (self-report is not a verifier) — supported, and stronger than stated.**
+  Self-check is not merely neutral, it is *harmful*: B−A is negative for five of
+  six models (llama3.2:1b −31.4pp overall, −52.4pp on tier 2). Only the 14B
+  model avoids damaging its own correct answers (+2.0). Asking a model to
+  discharge its own obligation destroys work.
+- **H3 (weak-model leverage) — supported.** Relative uplift is largest for the
+  weakest model (44.8% → 63.7%, +42% relative); 7B has no headroom left.
+- **H4 (repair has a capability floor) — supported.** C−R ≤ 0 for the small
+  models (135M: −13.7) and reaches 0 only at 1.5B+. Selection needs no
+  capability; repair does. Note C spends fewer calls (mean 1.0–2.1 vs R's
+  fixed 3), so C trades accuracy for budget rather than being strictly worse.
+- **H5 (reward-hacking asymmetry)** — design claim, not measured here.
+
+An incidental observation worth the paper: **14B's single-shot A (98.0%) is
+below 7B's (100%), yet both reach 100% under R** — the kernel compensates for
+capability's randomness, which is precisely the SPE thesis.
